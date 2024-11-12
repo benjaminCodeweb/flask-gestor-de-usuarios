@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Portal de Usuarios</h1>
+<button class="btn btn-primary" hx-get="{{ url_for('user_bp.new_user_form') }}" hx-target="#modal">Administrar</button>
+
+<div id="modal"></div>
+
+<div id="user-list">
+    {% for user in users %}
+        {% include "user_item.html" %}
+    {% endfor %}
+</div>
+
+{% endblock %}

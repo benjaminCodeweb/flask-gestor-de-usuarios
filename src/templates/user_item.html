@@ -1,0 +1,12 @@
+<div id="user-{{ user.id }}" class="card my-2" style="display: flex;align-items: center;">
+    <div class="card-body" style="align-items: center;">
+        <h5 class="card-title">{{ user.first_name }} {{ user.last_name }}</h5>
+        <p class="card-text">{{ user.email }}</p>
+        <p class="card-text">{{ wikidata }}</p>
+        <img src="{{ user.image_url }}" alt="User Image" height="200dvh">
+        <div style="margin-top: 1%; display:block; align-items: center;">
+            <button class="btn btn-warning" hx-get="{{ url_for('user_bp.edit_user_form', user_id=user.id) }}" hx-target="#modal">Edit</button>
+            <button class="btn btn-danger" hx-delete="{{ url_for('user_bp.delete_user', user_id=user.id) }}" hx-target="#modal">Delete</button>
+        </div>
+    </div>
+</div>
